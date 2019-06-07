@@ -79,16 +79,15 @@ public class ClassroomMapRepositoryTest {
 		assertEquals(0, classroomMapRepository.getClassroomMap().size());
 	}
 
-	// @Test
-	// public void updateAClassroom() {
-	// classroomMapRepository.getClassroomMap().put(1, classroom1);
-	// String updatedClassroom =
-	// "{\"classroomId\":1,\"trainerFirstName\":\"John\",\"trainerLastName\":\"Smith\"}";
-	//
-	// classroomMapRepository.updateClassroom(1, updatedClassroom);
-	//
-	// assertEquals(1, classroomMapRepository.getClassroomMap().size());
-	// assertTrue(classroomMapRepository.getClassroomMap().get(1).getTrainerLastName().equals("Doe"));
-	// }
+	@Test
+	public void updateAClassroom() {
+		classroomMapRepository.getClassroomMap().put(1, classroom1);
+		String updatedClassroom = "{\"classroomId\":1,\"trainerFirstName\":\"John\",\"trainerLastName\":\"Doe\"}";
+
+		classroomMapRepository.updateClassroom(1, updatedClassroom);
+
+		assertEquals(1, classroomMapRepository.getClassroomMap().size());
+		assertTrue(classroomMapRepository.getClassroomMap().get(1).getTrainerLastName().equals("Doe"));
+	}
 
 }
