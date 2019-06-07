@@ -15,6 +15,10 @@ public class Trainee {
 	@Column(length = 50)
 	private String lastName;
 
+	// @OneToOne(cascade = CascadeType.ALL)
+	// @JoinColumn(name = "classroomId", referencedColumnName = "classroomId")
+	// private Classroom classroom;
+
 	public Trainee() {
 
 	}
@@ -49,5 +53,13 @@ public class Trainee {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+	// public Classroom getClassroom() {
+	// return classroom;
+	// }
+	//
+	// public void setClassroom(Classroom classroom) {
+	// this.classroom = classroom;
+	// }
 
 }
