@@ -1,6 +1,7 @@
 package com.bae.persistence.repositoryTests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +13,8 @@ public class TraineeMapRepositoryTest {
 
 	private TraineeMapRepository traineeMapRepository;
 	private Trainee trainee1;
-	private String trainee1MapJSON = "{\"1\":{\"id\":1,\"firstName\":\"John\",\"lastName\":\"Smith\"}}";
+	private String trainee1JSON = "{\"id\":1,\"firstName\":\"John\",\"lastName\":\"Smith\"}";
+	private String trainee2JSON = "{\"id\":2,\"firstName\":\"Jane\",\"lastName\":\"Doe\"}";
 
 	@Before
 	public void setup() {
@@ -35,7 +37,25 @@ public class TraineeMapRepositoryTest {
 		traineeMapRepository.getTraineeMap().put(1, trainee1);
 
 		assertEquals(1, traineeMapRepository.getTraineeMap().size());
-		assertEquals(trainee1MapJSON, traineeMapRepository.getAllTrainees());
+		assertEquals("{\"1\":" + trainee1JSON + "}", traineeMapRepository.getAllTrainees());
+	}
+
+	@Test
+	public void addATrainee() {
+		traineeMapRepository.addATrainee(trainee1JSON);
+
+		assertEquals(1, traineeMapRepository.getTraineeMap().size());
+		assertTrue(traineeMapRepository.getTraineeMap().get(1).getFirstName().equals("John"));
+	}
+
+	@Test
+	public void add2Trainees() {
+		traineeMapRepository.addATrainee(trainee1JSON);
+		traineeMapRepository.addATrainee(trainee2JSON);
+
+		assertEquals(2, traineeMapRepository.getTraineeMap().size());
+		assertTrue(traineeMapRepository.getTraineeMap().get(1).getFirstName().equals("John"));
+		assertTrue(traineeMapRepository.getTraineeMap().get(2).getFirstName().equals("Jane"));
 	}
 
 }

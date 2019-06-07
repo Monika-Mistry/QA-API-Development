@@ -25,4 +25,14 @@ public class TraineeMapRepository implements TraineeRepository {
 		return traineeMap;
 	}
 
+	@Override
+	public String addATrainee(String trainee) {
+
+		Trainee traineeObj = jsonUtil.getObjectForJSON(trainee, Trainee.class);
+
+		traineeMap.put(traineeObj.getId(), traineeObj);
+
+		return "{\"message\": \"Account Created: " + trainee + "\" }";
+	}
+
 }
