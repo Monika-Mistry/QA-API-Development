@@ -17,7 +17,7 @@ public class ClassroomController {
 	@Inject
 	private ClassroomService service;
 
-	@Path("getAllclassrooms")
+	@Path("getAllClassrooms")
 	@GET
 	@Produces({ "application/json" })
 	public String getAllClassrooms() {
@@ -25,21 +25,21 @@ public class ClassroomController {
 
 	}
 
-	@Path("addAclassroom")
+	@Path("addAClassroom")
 	@POST
 	@Produces({ "application/json" })
 	public String addAClassroom(String classroom) {
 		return service.addAClassroom(classroom);
 	}
 
-	@Path("removeAclassroom/{id}")
+	@Path("removeAClassroom/{id}")
 	@DELETE
 	@Produces({ "application/json" })
 	public String removeAClassroom(@PathParam("id") int id) {
 		return service.removeAClassroom(id);
 	}
 
-	@Path("updateAclassroom/{id}")
+	@Path("updateAClassroom/{id}")
 	@PUT
 	@Produces({ "application/json" })
 	public String updateAClassroom(@PathParam("id") int id, String classroom) {
