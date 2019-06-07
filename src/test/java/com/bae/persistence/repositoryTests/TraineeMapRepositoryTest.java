@@ -32,8 +32,8 @@ public class TraineeMapRepositoryTest {
 		Trainee trainee1 = new Trainee(1, "John", "Smith");
 		traineeMapRepository.getTraineeMap().put(1, trainee1);
 
-		assertEquals(0, traineeMapRepository.getTraineeMap().size());
-		assertEquals("{\"1\":{\"id\":1,\"firstName\":\"John\\\",\"lastName\":\"Smith\"}}",
+		assertEquals(1, traineeMapRepository.getTraineeMap().size());
+		assertEquals("{\"1\":{\"id\":1,\"firstName\":\"John\",\"lastName\":\"Smith\"}}",
 				traineeMapRepository.getAllTrainees());
 	}
 
