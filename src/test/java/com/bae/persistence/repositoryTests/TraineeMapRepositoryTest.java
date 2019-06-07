@@ -13,7 +13,6 @@ public class TraineeMapRepositoryTest {
 
 	private TraineeMapRepository traineeMapRepository;
 	private Trainee trainee1;
-	private String trainee1MapJSON = "{\"1\":{\"id\":1,\"firstName\":\"John\",\"lastName\":\"Smith\"}}";
 	private String trainee1JSON = "{\"id\":1,\"firstName\":\"John\",\"lastName\":\"Smith\"}";
 	private String trainee2JSON = "{\"id\":2,\"firstName\":\"Jane\",\"lastName\":\"Doe\"}";
 
@@ -38,7 +37,7 @@ public class TraineeMapRepositoryTest {
 		traineeMapRepository.getTraineeMap().put(1, trainee1);
 
 		assertEquals(1, traineeMapRepository.getTraineeMap().size());
-		assertEquals(trainee1MapJSON, traineeMapRepository.getAllTrainees());
+		assertEquals("{\"1\":" + trainee1JSON + "}", traineeMapRepository.getAllTrainees());
 	}
 
 	@Test
