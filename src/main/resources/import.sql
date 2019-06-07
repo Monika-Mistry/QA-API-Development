@@ -1,0 +1,1 @@
+INSERT INTO Trainee(id, firstName, lastName) VALUES (1, 'John', 'Smith')
