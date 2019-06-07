@@ -32,8 +32,10 @@ public class TraineeDataBaseRepository implements TraineeRepository {
 
 	@Override
 	public String addATrainee(String trainee) {
-		// TODO Auto-generated method stub
-		return null;
+		Trainee traineeObj = jsonUtil.getObjectForJSON(trainee, Trainee.class);
+
+		manager.persist(traineeObj);
+		return "{\"message\": \"Account Created: " + trainee + "\" }";
 	}
 
 }
