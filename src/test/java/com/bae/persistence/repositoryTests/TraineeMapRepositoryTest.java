@@ -1,11 +1,11 @@
 package com.bae.persistence.repositoryTests;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import com.bae.persistence.domain.Trainee;
 import com.bae.persistence.repository.TraineeMapRepository;
 
 public class TraineeMapRepositoryTest {
@@ -29,7 +29,12 @@ public class TraineeMapRepositoryTest {
 
 	@Test
 	public void returnTraineesWhenMapIsFilled() {
-		fail("TODO");
+		Trainee trainee1 = new Trainee(1, "John", "Smith");
+		traineeMapRepository.getTraineeMap().put(1, trainee1);
+
+		assertEquals(0, traineeMapRepository.getTraineeMap().size());
+		assertEquals("{\"1\":{\"id\":1,\"firstName\":\"John\\\",\"lastName\":\"Smith\"}}",
+				traineeMapRepository.getAllTrainees());
 	}
 
 }
