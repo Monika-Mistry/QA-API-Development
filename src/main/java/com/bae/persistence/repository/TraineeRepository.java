@@ -11,5 +11,6 @@ public interface TraineeRepository {
 	// U
 
 	// D
+	String removeATrainee(int id);
 
 }

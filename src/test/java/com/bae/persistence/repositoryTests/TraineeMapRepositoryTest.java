@@ -58,4 +58,23 @@ public class TraineeMapRepositoryTest {
 		assertTrue(traineeMapRepository.getTraineeMap().get(2).getFirstName().equals("Jane"));
 	}
 
+	@Test
+	public void removeATrainee() {
+		traineeMapRepository.addATrainee(trainee1JSON);
+
+		traineeMapRepository.removeATrainee(1);
+
+		assertEquals(0, traineeMapRepository.getTraineeMap().size());
+	}
+
+	@Test
+	public void remove2Trainees() {
+		traineeMapRepository.addATrainee(trainee1JSON);
+		traineeMapRepository.addATrainee(trainee2JSON);
+
+		traineeMapRepository.removeATrainee(1);
+		traineeMapRepository.removeATrainee(2);
+		assertEquals(0, traineeMapRepository.getTraineeMap().size());
+	}
+
 }

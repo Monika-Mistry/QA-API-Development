@@ -7,8 +7,8 @@ import javax.persistence.Id;
 @Entity
 public class Trainee {
 
-	@Id
 	// @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
 	private int id;
 	@Column(length = 50)
 	private String firstName;

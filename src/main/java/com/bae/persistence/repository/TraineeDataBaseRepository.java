@@ -42,4 +42,14 @@ public class TraineeDataBaseRepository implements TraineeRepository {
 		return trainee;
 	}
 
+	@Override
+	@Transactional(TxType.REQUIRED)
+	public String removeATrainee(int id) {
+		Trainee traineeObj = manager.find(Trainee.class, id);
+
+		manager.remove(traineeObj);
+
+		return "{\"message\": \"" + traineeObj.getFirstName() + " " + traineeObj.getLastName() + " Deleted\" }";
+	}
+
 }
