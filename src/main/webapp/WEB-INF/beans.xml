@@ -8,4 +8,8 @@
       <!-- <alternatives>
         <class>com.qa.persistence.repository.TraineeMapRepository</class>
     </alternatives> -->
+    
+    <!-- <alternatives>
+        <class>com.qa.persistence.repository.ClassroomMapRepository</class>
+    </alternatives> -->
 </beans>
