@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.bae.persistence.domain.Trainee;
+import com.bae.util.Constants;
 import com.bae.util.JSONUtil;
 
 public class TraineeDataBaseRepository implements TraineeRepository {
@@ -20,7 +21,7 @@ public class TraineeDataBaseRepository implements TraineeRepository {
 
 	@Override
 	public String getAllTrainees() {
-		Query query = manager.createQuery("SELECT t FROM Trainee t");
+		Query query = manager.createQuery(Constants.GETALLTRAINEEQUERY);
 
 		Collection<Trainee> trainees = (Collection<Trainee>) query.getResultList();
 
