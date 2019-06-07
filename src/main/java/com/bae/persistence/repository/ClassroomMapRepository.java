@@ -1,6 +1,16 @@
 package com.bae.persistence.repository;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import com.bae.persistence.domain.Classroom;
+import com.bae.util.JSONUtil;
+
 public class ClassroomMapRepository implements ClassroomRepository {
+
+	private Map<Integer, Classroom> classroomMap = new HashMap<Integer, Classroom>();
+
+	private JSONUtil jsonUtil = new JSONUtil();
 
 	@Override
 	public String addAClassroom(String classroom) {
@@ -10,8 +20,7 @@ public class ClassroomMapRepository implements ClassroomRepository {
 
 	@Override
 	public String getAllClassrooms() {
-		// TODO Auto-generated method stub
-		return null;
+		return jsonUtil.getJSONForObject(classroomMap);
 	}
 
 	@Override
@@ -24,6 +33,10 @@ public class ClassroomMapRepository implements ClassroomRepository {
 	public String removeAClassroom(int id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public Map<Integer, Classroom> getClassroomMap() {
+		return classroomMap;
 	}
 
 }

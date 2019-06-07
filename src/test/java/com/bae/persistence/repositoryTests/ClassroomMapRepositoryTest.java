@@ -5,16 +5,20 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.bae.persistence.domain.Classroom;
 import com.bae.persistence.repository.ClassroomMapRepository;
 
 public class ClassroomMapRepositoryTest {
 
 	private ClassroomMapRepository classroomMapRepository;
+	private Classroom classroom1;
+	private String cr1JSON = "{\"classroomId\":1,\"trainerFirstName\":\"John\",\"trainerLastName\":\"Smith\"}";
 
 	@Before
 	public void setup() {
 
 		classroomMapRepository = new ClassroomMapRepository();
+		classroom1 = new Classroom(1, "John", "Smith");
 	}
 
 	@Test
@@ -26,10 +30,10 @@ public class ClassroomMapRepositoryTest {
 
 	@Test
 	public void returnClassroomsWhenMapIsFilled() {
-		classroomMapRepository.getClassroomMap().put(1, trainee1);
+		classroomMapRepository.getClassroomMap().put(1, classroom1);
 
 		assertEquals(1, classroomMapRepository.getClassroomMap().size());
-		assertEquals("{\"1\":" + trainee1JSON + "}", classroomMapRepository.getAllTrainees());
+		assertEquals("{\"1\":" + cr1JSON + "}", classroomMapRepository.getAllClassrooms());
 	}
 
 	// @Test
