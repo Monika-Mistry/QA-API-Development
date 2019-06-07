@@ -43,8 +43,16 @@ public class TraineeMapRepository implements TraineeRepository {
 
 	@Override
 	public String updateTrainee(int id, String trainee) {
-		// TODO Auto-generated method stub
-		return null;
+		Trainee traineeToUpdate = traineeMap.get(id);
+
+		Trainee traineeInput = jsonUtil.getObjectForJSON(trainee, Trainee.class);
+
+		traineeToUpdate.setFirstName(traineeInput.getFirstName());
+		traineeToUpdate.setLastName(traineeInput.getLastName());
+
+		traineeMap.replace(1, traineeToUpdate, traineeInput);
+
+		return trainee;
 	}
 
 }

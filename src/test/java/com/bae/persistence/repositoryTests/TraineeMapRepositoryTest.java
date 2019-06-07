@@ -86,7 +86,7 @@ public class TraineeMapRepositoryTest {
 
 		traineeMapRepository.updateTrainee(1, updatedTrainee);
 
-		assertEquals(0, traineeMapRepository.getTraineeMap().size());
+		assertEquals(1, traineeMapRepository.getTraineeMap().size());
 		assertTrue(traineeMapRepository.getTraineeMap().get(1).getLastName().equals("Doe"));
 	}
 
