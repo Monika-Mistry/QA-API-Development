@@ -2,6 +2,7 @@ package com.bae.persistence.repositoryTests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -75,6 +76,11 @@ public class TraineeMapRepositoryTest {
 		traineeMapRepository.removeATrainee(1);
 		traineeMapRepository.removeATrainee(2);
 		assertEquals(0, traineeMapRepository.getTraineeMap().size());
+	}
+
+	@Test
+	public void updateATrainee() {
+		fail("TODO");
 	}
 
 }
