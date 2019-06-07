@@ -42,7 +42,7 @@ public class ClassroomDataBaseRepository implements ClassroomRepository {
 	@Override
 	@Transactional(TxType.REQUIRED)
 	public String updateClassroom(int id, String classroom) {
-		Classroom classroomToUpdate = manager.find(Classroom.class, 1);
+		Classroom classroomToUpdate = manager.find(Classroom.class, id);
 
 		Classroom classroomInput = jsonUtil.getObjectForJSON(classroom, Classroom.class);
 
