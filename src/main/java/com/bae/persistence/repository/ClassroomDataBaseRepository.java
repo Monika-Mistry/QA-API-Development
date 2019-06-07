@@ -25,6 +25,7 @@ public class ClassroomDataBaseRepository implements ClassroomRepository {
 	private JSONUtil jsonUtil;
 
 	@Override
+	@Transactional(TxType.REQUIRED)
 	public String addAClassroom(String classroom) {
 		Classroom newClassroom = jsonUtil.getObjectForJSON(classroom, Classroom.class);
 		manager.persist(newClassroom);
@@ -32,7 +33,7 @@ public class ClassroomDataBaseRepository implements ClassroomRepository {
 	}
 
 	@Override
-	@Transactional(TxType.REQUIRED)
+
 	public String getAllClassrooms() {
 		Query query = manager.createQuery(Constants.GETALLCLASSROOMQUERY);
 		Collection<Classroom> classrooms = (Collection<Classroom>) query.getResultList();
