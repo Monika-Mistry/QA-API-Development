@@ -49,7 +49,7 @@ public class TraineeDataBaseRepository implements TraineeRepository {
 
 		manager.remove(traineeObj);
 
-		return "{\"message\":" + jsonUtil.getJSONForObject(traineeObj) + "\" Deleted\" }";
+		return "{\"message\": \"" + traineeObj.getFirstName() + " " + traineeObj.getLastName() + " Deleted\" }";
 	}
 
 }
