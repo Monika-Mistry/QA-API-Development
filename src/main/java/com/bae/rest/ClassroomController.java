@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 
 import com.bae.business.service.ClassroomService;
 
-@Path("classroom")
+@Path("classroom/")
 public class ClassroomController {
 
 	@Inject
