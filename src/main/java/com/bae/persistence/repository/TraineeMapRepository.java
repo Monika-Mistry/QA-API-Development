@@ -27,8 +27,12 @@ public class TraineeMapRepository implements TraineeRepository {
 
 	@Override
 	public String addATrainee(String trainee) {
-		// TODO Auto-generated method stub
-		return null;
+
+		Trainee traineeObj = jsonUtil.getObjectForJSON(trainee, Trainee.class);
+
+		traineeMap.put(traineeObj.getId(), traineeObj);
+
+		return "{\"message\": \"Account Created: " + trainee + "\" }";
 	}
 
 }
