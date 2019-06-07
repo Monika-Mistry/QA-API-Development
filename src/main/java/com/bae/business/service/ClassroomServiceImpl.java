@@ -1,9 +1,12 @@
 package com.bae.business.service;
 
+import javax.inject.Inject;
+
 import com.bae.persistence.repository.ClassroomRepository;
 
 public class ClassroomServiceImpl implements ClassroomService {
 
+	@Inject
 	private ClassroomRepository classroomRepository;
 
 	@Override
