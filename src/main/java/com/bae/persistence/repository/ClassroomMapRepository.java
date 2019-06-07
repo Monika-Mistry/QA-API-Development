@@ -14,8 +14,9 @@ public class ClassroomMapRepository implements ClassroomRepository {
 
 	@Override
 	public String addAClassroom(String classroom) {
-		// TODO Auto-generated method stub
-		return null;
+		Classroom newClassroom = jsonUtil.getObjectForJSON(classroom, Classroom.class);
+		classroomMap.put(newClassroom.getClassroomId(), newClassroom);
+		return classroom;
 	}
 
 	@Override
