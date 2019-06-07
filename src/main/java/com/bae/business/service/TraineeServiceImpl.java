@@ -26,4 +26,10 @@ public class TraineeServiceImpl implements TraineeService {
 		return traineeRepository.removeATrainee(id);
 	}
 
+	@Override
+	public String updateATrainee(int id, String trainee) {
+
+		return traineeRepository.updateTrainee(id, trainee);
+	}
+
 }
