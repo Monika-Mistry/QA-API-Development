@@ -32,8 +32,8 @@ public class ClassroomMapRepository implements ClassroomRepository {
 
 	@Override
 	public String removeAClassroom(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		classroomMap.remove(id);
+		return "{\"message\": \"Classroom " + id + " removed\"}";
 	}
 
 	public Map<Integer, Classroom> getClassroomMap() {

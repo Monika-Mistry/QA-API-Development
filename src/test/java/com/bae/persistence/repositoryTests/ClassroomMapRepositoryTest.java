@@ -13,6 +13,7 @@ public class ClassroomMapRepositoryTest {
 
 	private ClassroomMapRepository classroomMapRepository;
 	private Classroom classroom1;
+	private Classroom classroom2;
 	private String cr1JSON = "{\"classroomId\":1,\"trainerFirstName\":\"John\",\"trainerLastName\":\"Smith\"}";
 	private String cr2JSON = "{\"classroomId\":2,\"trainerFirstName\":\"Jane\",\"trainerLastName\":\"Doe\"}";
 
@@ -21,6 +22,7 @@ public class ClassroomMapRepositoryTest {
 
 		classroomMapRepository = new ClassroomMapRepository();
 		classroom1 = new Classroom(1, "John", "Smith");
+		classroom2 = new Classroom(1, "Jane", "Doe");
 	}
 
 	@Test
@@ -56,37 +58,37 @@ public class ClassroomMapRepositoryTest {
 		assertTrue(classroomMapRepository.getClassroomMap().get(2).getTrainerFirstName().equals("Jane"));
 	}
 
-	// @Test
-	// public void removeAClassroom() {
-	// classroomMapRepository.addATrainee(trainee1JSON);
-	//
-	// classroomMapRepository.removeATrainee(1);
-	//
-	// assertEquals(0, classroomMapRepository.getClassroomMap().size());
-	// }
-	//
-	// @Test
-	// public void remove2Classrooms() {
-	// classroomMapRepository.addATrainee(trainee1JSON);
-	// classroomMapRepository.addATrainee(trainee2JSON);
-	//
-	// classroomMapRepository.removeATrainee(1);
-	// assertEquals(1, classroomMapRepository.getClassroomMap().size());
-	//
-	// classroomMapRepository.removeATrainee(2);
-	// assertEquals(0, classroomMapRepository.getClassroomMap().size());
-	// }
-	//
+	@Test
+	public void removeAClassroom() {
+		classroomMapRepository.getClassroomMap().put(1, classroom1);
+
+		classroomMapRepository.removeAClassroom(1);
+
+		assertEquals(0, classroomMapRepository.getClassroomMap().size());
+	}
+
+	@Test
+	public void remove2Classrooms() {
+		classroomMapRepository.getClassroomMap().put(1, classroom1);
+		classroomMapRepository.getClassroomMap().put(2, classroom2);
+
+		classroomMapRepository.removeAClassroom(1);
+		assertEquals(1, classroomMapRepository.getClassroomMap().size());
+
+		classroomMapRepository.removeAClassroom(2);
+		assertEquals(0, classroomMapRepository.getClassroomMap().size());
+	}
+
 	// @Test
 	// public void updateAClassroom() {
-	// classroomMapRepository.addATrainee(trainee1JSON);
-	// String updatedTrainee =
-	// "{\"id\":1,\"firstName\":\"John\",\"lastName\":\"Doe\"}";
+	// classroomMapRepository.getClassroomMap().put(1, classroom1);
+	// String updatedClassroom =
+	// "{\"classroomId\":1,\"trainerFirstName\":\"John\",\"trainerLastName\":\"Smith\"}";
 	//
-	// classroomMapRepository.updateTrainee(1, updatedTrainee);
+	// classroomMapRepository.updateClassroom(1, updatedClassroom);
 	//
 	// assertEquals(1, classroomMapRepository.getClassroomMap().size());
-	// assertTrue(classroomMapRepository.getClassroomMap().get(1).getLastName().equals("Doe"));
+	// assertTrue(classroomMapRepository.getClassroomMap().get(1).getTrainerLastName().equals("Doe"));
 	// }
 
 }
