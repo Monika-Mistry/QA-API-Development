@@ -25,4 +25,10 @@ public class TraineeMapRepository implements TraineeRepository {
 		return traineeMap;
 	}
 
+	@Override
+	public String addATrainee(String trainee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
