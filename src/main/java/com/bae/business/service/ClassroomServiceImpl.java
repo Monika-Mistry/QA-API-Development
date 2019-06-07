@@ -1,29 +1,32 @@
 package com.bae.business.service;
 
+import com.bae.persistence.repository.ClassroomRepository;
+
 public class ClassroomServiceImpl implements ClassroomService {
+
+	private ClassroomRepository classroomRepository;
 
 	@Override
 	public String addAClassroom(String classroom) {
-		// TODO Auto-generated method stub
-		return null;
+		return classroomRepository.addAClassroom(classroom);
 	}
 
 	@Override
 	public String getAllClassrooms() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return classroomRepository.getAllClassrooms();
 	}
 
 	@Override
 	public String updateClassroom(int id, String classroom) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return classroomRepository.updateClassroom(id, classroom);
 	}
 
 	@Override
 	public String removeAClassroom(int id) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return classroomRepository.removeAClassroom(id);
 	}
 
 }
