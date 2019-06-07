@@ -58,7 +58,8 @@ public class ClassroomDataBaseRepository implements ClassroomRepository {
 	@Override
 	@Transactional(TxType.REQUIRED)
 	public String removeAClassroom(int id) {
-		manager.remove(id);
+		Classroom classroom = manager.find(Classroom.class, id);
+		manager.remove(classroom);
 		return "{\"message\":\"Classroom " + id + " removed\"}";
 	}
 
