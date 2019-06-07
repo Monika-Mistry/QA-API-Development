@@ -43,9 +43,13 @@ public class TraineeDataBaseRepository implements TraineeRepository {
 	}
 
 	@Override
+	@Transactional(TxType.REQUIRED)
 	public String removeATrainee(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Trainee traineeObj = manager.find(Trainee.class, id);
+
+		manager.remove(traineeObj);
+
+		return "{\"message\":" + jsonUtil.getJSONForObject(traineeObj) + "\" Deleted\" }";
 	}
 
 }
