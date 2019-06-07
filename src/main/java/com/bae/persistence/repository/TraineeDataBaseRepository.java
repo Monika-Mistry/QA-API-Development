@@ -53,9 +53,23 @@ public class TraineeDataBaseRepository implements TraineeRepository {
 	}
 
 	@Override
+	@Transactional(TxType.REQUIRED)
 	public String updateTrainee(int id, String trainee) {
-		// TODO Auto-generated method stub
-		return null;
+		Trainee traineeToUpdate = manager.find(Trainee.class, id);
+		Trainee traineeInput = jsonUtil.getObjectForJSON(trainee, Trainee.class);
+
+		if (traineeToUpdate != null) {
+
+			traineeToUpdate.setFirstName(traineeInput.getFirstName());
+			traineeToUpdate.setLastName(traineeInput.getLastName());
+
+			manager.persist(traineeToUpdate);
+
+			return jsonUtil.getJSONForObject(traineeToUpdate);
+		}
+
+		else
+			return null;
 	}
 
 }
