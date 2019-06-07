@@ -32,13 +32,13 @@ public class TraineeMapRepository implements TraineeRepository {
 
 		traineeMap.put(traineeObj.getId(), traineeObj);
 
-		return "{\"message\": \"Account Created: " + trainee + "\" }";
+		return "{\"message\": \"Trainee Created: " + trainee + "\" }";
 	}
 
 	@Override
 	public String removeATrainee(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		traineeMap.remove(1);
+		return "{\"message\": \"Trainee Deleted\" }";
 	}
 
 }
