@@ -35,4 +35,10 @@ public class TraineeMapRepository implements TraineeRepository {
 		return "{\"message\": \"Account Created: " + trainee + "\" }";
 	}
 
+	@Override
+	public String removeATrainee(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

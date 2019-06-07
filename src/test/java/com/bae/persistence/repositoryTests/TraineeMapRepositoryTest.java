@@ -61,7 +61,11 @@ public class TraineeMapRepositoryTest {
 
 	@Test
 	public void removeATrainee() {
-		fail("TODO");
+		traineeMapRepository.addATrainee(trainee1JSON);
+
+		traineeMapRepository.removeATrainee(1);
+
+		assertEquals(0, traineeMapRepository.getTraineeMap().size());
 	}
 
 	@Test
