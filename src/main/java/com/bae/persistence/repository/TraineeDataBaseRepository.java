@@ -52,4 +52,10 @@ public class TraineeDataBaseRepository implements TraineeRepository {
 		return "{\"message\": \"" + traineeObj.getFirstName() + " " + traineeObj.getLastName() + " Deleted\" }";
 	}
 
+	@Override
+	public String updateTrainee(int id, String trainee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -41,4 +41,10 @@ public class TraineeMapRepository implements TraineeRepository {
 		return "{\"message\": \"Trainee Deleted\" }";
 	}
 
+	@Override
+	public String updateTrainee(int id, String trainee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

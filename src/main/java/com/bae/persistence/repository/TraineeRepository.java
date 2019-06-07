@@ -9,6 +9,7 @@ public interface TraineeRepository {
 	String getAllTrainees();
 
 	// U
+	String updateTrainee(int id, String trainee);
 
 	// D
 	String removeATrainee(int id);
