@@ -30,4 +30,10 @@ public class TraineeDataBaseRepository implements TraineeRepository {
 		return jsonUtil.getJSONForObject(trainees);
 	}
 
+	@Override
+	public String addATrainee(String trainee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
