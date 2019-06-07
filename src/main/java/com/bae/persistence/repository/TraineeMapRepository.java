@@ -37,7 +37,7 @@ public class TraineeMapRepository implements TraineeRepository {
 
 	@Override
 	public String removeATrainee(int id) {
-		traineeMap.remove(1);
+		traineeMap.remove(id);
 		return "{\"message\": \"Trainee Deleted\" }";
 	}
 
