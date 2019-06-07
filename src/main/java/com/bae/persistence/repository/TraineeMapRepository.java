@@ -50,7 +50,7 @@ public class TraineeMapRepository implements TraineeRepository {
 		traineeToUpdate.setFirstName(traineeInput.getFirstName());
 		traineeToUpdate.setLastName(traineeInput.getLastName());
 
-		traineeMap.replace(1, traineeToUpdate, traineeInput);
+		traineeMap.replace(1, traineeToUpdate);
 
 		return trainee;
 	}

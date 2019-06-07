@@ -13,6 +13,7 @@ public class TraineeMapRepositoryTest {
 
 	private TraineeMapRepository traineeMapRepository;
 	private Trainee trainee1;
+	private Trainee trainee2;
 	private String trainee1JSON = "{\"id\":1,\"firstName\":\"John\",\"lastName\":\"Smith\"}";
 	private String trainee2JSON = "{\"id\":2,\"firstName\":\"Jane\",\"lastName\":\"Doe\"}";
 
@@ -21,6 +22,7 @@ public class TraineeMapRepositoryTest {
 
 		traineeMapRepository = new TraineeMapRepository();
 		trainee1 = new Trainee(1, "John", "Smith");
+		trainee2 = new Trainee(2, "Jane", "Doe");
 
 	}
 
@@ -60,7 +62,7 @@ public class TraineeMapRepositoryTest {
 
 	@Test
 	public void removeATrainee() {
-		traineeMapRepository.addATrainee(trainee1JSON);
+		traineeMapRepository.getTraineeMap().put(1, trainee1);
 
 		traineeMapRepository.removeATrainee(1);
 
@@ -69,8 +71,8 @@ public class TraineeMapRepositoryTest {
 
 	@Test
 	public void remove2Trainees() {
-		traineeMapRepository.addATrainee(trainee1JSON);
-		traineeMapRepository.addATrainee(trainee2JSON);
+		traineeMapRepository.getTraineeMap().put(1, trainee1);
+		traineeMapRepository.getTraineeMap().put(2, trainee1);
 
 		traineeMapRepository.removeATrainee(1);
 		assertEquals(1, traineeMapRepository.getTraineeMap().size());
@@ -81,7 +83,7 @@ public class TraineeMapRepositoryTest {
 
 	@Test
 	public void updateATrainee() {
-		traineeMapRepository.addATrainee(trainee1JSON);
+		traineeMapRepository.getTraineeMap().put(1, trainee1);
 		String updatedTrainee = "{\"id\":1,\"firstName\":\"John\",\"lastName\":\"Doe\"}";
 
 		traineeMapRepository.updateTrainee(1, updatedTrainee);
