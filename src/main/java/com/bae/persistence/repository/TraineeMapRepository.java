@@ -41,4 +41,18 @@ public class TraineeMapRepository implements TraineeRepository {
 		return "{\"message\": \"Trainee Deleted\" }";
 	}
 
+	@Override
+	public String updateTrainee(int id, String trainee) {
+		Trainee traineeToUpdate = traineeMap.get(id);
+
+		Trainee traineeInput = jsonUtil.getObjectForJSON(trainee, Trainee.class);
+
+		traineeToUpdate.setFirstName(traineeInput.getFirstName());
+		traineeToUpdate.setLastName(traineeInput.getLastName());
+
+		traineeMap.replace(1, traineeToUpdate, traineeInput);
+
+		return trainee;
+	}
+
 }
