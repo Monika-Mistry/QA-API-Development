@@ -2,7 +2,6 @@ package com.bae.persistence.repositoryTests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -74,13 +73,21 @@ public class TraineeMapRepositoryTest {
 		traineeMapRepository.addATrainee(trainee2JSON);
 
 		traineeMapRepository.removeATrainee(1);
+		assertEquals(1, traineeMapRepository.getTraineeMap().size());
+
 		traineeMapRepository.removeATrainee(2);
 		assertEquals(0, traineeMapRepository.getTraineeMap().size());
 	}
 
 	@Test
 	public void updateATrainee() {
-		fail("TODO");
+		traineeMapRepository.addATrainee(trainee1JSON);
+		String updatedTrainee = "{\"id\":1,\"firstName\":\"John\",\"lastName\":\"Doe\"}";
+
+		traineeMapRepository.updateTrainee(1, updatedTrainee);
+
+		assertEquals(0, traineeMapRepository.getTraineeMap().size());
+		assertTrue(traineeMapRepository.getTraineeMap().get(1).getLastName().equals("Doe"));
 	}
 
 }
